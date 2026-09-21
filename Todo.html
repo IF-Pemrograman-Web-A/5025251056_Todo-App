@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> To Do List</title>
+  <title>To Do List</title>
   <link rel="stylesheet" href="mystyle.css"/>
 </head>
-<body>
 
+<body>
 <header>
   <h1>To Do List</h1>
+  <button id="btn-dark-mode">Toggle Dark Mode</button>
 </header>
 
 <section>
   <div class="list">
     <h2>List</h2>
-  <nav>
-    <ul>
-      <li><a href="#">Sarapan</a></li>
-      <li><a href="#">Kuliah</a></li>
-      <li><a href="#">Main</a></li>
-    </ul>
-  </nav>
+    <nav>
+      <ul>
+        <li><a href="#">Sarapan</a></li>
+        <li><a href="#">Kuliah</a></li>
+        <li><a href="#">Main</a></li>
+      </ul>
+    </nav>
   </div>
   <div class="todo">
-  <article>
-    <h1>Sarapan</h1>
-    <p>Sarapan sebelum kuliah</p>
-  </article>
+    <article>
+      <h1>Sarapan</h1>
+      <p>Sarapan sebelum kuliah</p>
+    </article>
   </div>
 </section>
 
 <form>
   <div class="form">
-  <h2>Tambah List</h2>
-  <label for="pekerjaan">Pekerjaan</label><br>
-  <input type="text"><br><br>
-  <label for="desc">Deskripsi</label><br>
-  <input type="text"><br>
-  <input type="submit" value="Submit">
+    <h3>Tambah List</h3>
+    <label for="pekerjaan">Pekerjaan</label><br>
+    <input type="text" id="pekerjaan" placeholder="Pekerjaan..."><br><br>
+    <label for="desc">Deskripsi</label><br>
+    <input type="text" id="desc" placeholder="Deskripsi..."><br><br>
+    <input type="submit" value="Submit">
   </div>
 </form>
 
 <footer>
+  <p>&copy; To Do List</p>
 </footer>
+<script src="todo.js"></script>
 
 </body>
 </html>
-
