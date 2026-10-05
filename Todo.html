@@ -1,48 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title> To Do List</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List App</title>
   <link rel="stylesheet" href="mystyle.css"/>
 </head>
 <body>
 
-<header>
+<header role="banner">
   <h1>To Do List</h1>
+  <!-- Accessibility: aria-label untuk tombol dark mode -->
+  <button id="btn-dark-mode" type="button" aria-label="Ganti mode terang atau gelap">
+    Toggle Dark Mode
+  </button>
 </header>
 
-<section>
-  <div class="list">
-    <h2>List</h2>
-  <nav>
-    <ul>
-      <li><a href="#">Sarapan</a></li>
-      <li><a href="#">Kuliah</a></li>
-      <li><a href="#">Main</a></li>
-    </ul>
-  </nav>
-  </div>
-  <div class="todo">
-  <article>
-    <h1>Sarapan</h1>
-    <p>Sarapan sebelum kuliah</p>
-  </article>
-  </div>
-</section>
+<main role="main">
+  <section aria-labelledby="heading-list">
+    <div class="list">
+      <h2 id="heading-list">Daftar Tugas</h2>
+      <nav aria-label="Navigasi Daftar Tugas">
+        <ul id="todo-ul-list">
+          <!-- Item todo akan muncul di sini via JS -->
+        </ul>
+      </nav>
+    </div>
 
-<form>
-  <div class="form">
-  <h2>Tambah List</h2>
-  <label for="pekerjaan">Pekerjaan</label><br>
-  <input type="text"><br><br>
-  <label for="desc">Deskripsi</label><br>
-  <input type="text"><br>
-  <input type="submit" value="Submit">
-  </div>
-</form>
+    <div class="todo" aria-live="polite">
+      <article id="todo-detail">
+        <h2>Detail Tugas</h2>
+        <p>Pilih tugas di sebelah kiri untuk melihat detail.</p>
+      </article>
+    </div>
+  </section>
 
-<footer>
+  <form id="form-todo" aria-labelledby="form-heading">
+    <div class="form">
+      <h3 id="form-heading">Tambah List Baru</h3>
+      
+      <!-- Label dan Input terhubung dengan atribut 'for' (Accessibility) -->
+      <label for="pekerjaan">Pekerjaan:</label>
+      <input type="text" id="pekerjaan" name="pekerjaan" placeholder="Pekerjaan..." required />
+
+      <label for="desc">Deskripsi:</label>
+      <input type="text" id="desc" name="desc" placeholder="Deskripsi..." required />
+
+      <!-- Kriteria 2: Media Capture API (Input Gambar / Kamera) -->
+      <label for="foto">Foto Tugas (Kamera / File):</label>
+      <input type="file" id="foto" accept="image/*" capture="environment" />
+
+      <!-- Kriteria 3: Input Waktu Notifikasi -->
+      <label for="waktuNotif">Waktu Notifikasi:</label>
+      <input type="datetime-local" id="waktuNotif" name="waktuNotif" />
+
+      <button type="submit" id="btn-submit">Simpan Tugas</button>
+    </div>
+  </form>
+</main>
+
+<footer role="contentinfo">
+  <p>&copy; To Do List - Aplikasi Pembelajaran</p>
 </footer>
 
+<script src="todo.js"></script>
 </body>
 </html>
-
